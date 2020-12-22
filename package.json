@@ -20,6 +20,10 @@
     "analyze": "size-limit --why",
     "dev": "rm -rf dist && concurrently \"npm start\" \"wait-on dist/index.js && webpack serve --config example/build/webpack.config.js\""
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shnning/vue-cooler-exposure.git"
+  },
   "peerDependencies": {},
   "husky": {
     "hooks": {
@@ -71,5 +75,13 @@
     "webpack": "^5.10.3",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "keywords": [
+    "vue",
+    "exposure",
+    "exposure check",
+    "record",
+    "data record",
+    "data report"
+  ]
 }
