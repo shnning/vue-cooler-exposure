@@ -11,7 +11,7 @@ export const ExposurePlugin: PluginObject<ExposureOptions> = {
         $exposure.add(el, binding);
       },
       update(el: HTMLElement, binding: VNodeDirective) {
-        $exposure.add(el, binding);
+        $exposure.update(el, binding);
       },
     });
   },

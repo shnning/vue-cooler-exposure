@@ -16,14 +16,7 @@ export default class Exposure {
   private _init(options: ExposureOptions) {
     const config = this._initOptions(options);
     const delay = options.delay || 800;
-    const exposureCheck = debounce((exposureList: Set<HTMLElement>) => {
-      const items = Array.from(exposureList.values()).map(
-        el => el.payload
-      );
-      this.afterRecordCallbackQueue.forEach(fn => {
-        fn(items);
-      });
-    }, delay);
+    const _exposureCheck = debounce(this.exposureCheck.bind(this), delay);
 
     this.observer = new IntersectionObserver((entries => {
       entries.forEach(entry => {
@@ -33,9 +26,10 @@ export default class Exposure {
           this.exposureList.delete(entry.target as HTMLElement);
         }
       });
-      exposureCheck(this.exposureList);
+      _exposureCheck();
     }), config);
   }
+
 
   private _initOptions(options?: ExposureOptions): IntersectionObserverConfig {
     let config: IntersectionObserverConfig;
@@ -61,6 +55,15 @@ export default class Exposure {
     return config;
   }
 
+  exposureCheck() {
+    const exposureItems = Array.from(this.exposureList.values()).map(
+      el => el.payload
+    );
+    this.afterRecordCallbackQueue.forEach(fn => {
+      fn(exposureItems);
+    });
+  }
+
   add(el: HTMLElement, binding: VNodeDirective) {
     const { value } = binding;
     if (!value) {
@@ -76,10 +79,10 @@ export default class Exposure {
       warning('v-exposure requires a argument which you want to record.');
     }
     el.payload = value;
-    this.observer.observe(el);
   }
 
   addAfterRecordCallback(fn: Function) {
     this.afterRecordCallbackQueue.push(fn);
+    return this;
   }
 }
