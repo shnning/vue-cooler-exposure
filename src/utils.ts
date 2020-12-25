@@ -17,12 +17,12 @@ export function debounce(fn: Function, delay: number) {
 
 export function isIntersecting(
   entry: IntersectionObserverEntry,
-  threshold: number = 0
+  threshold: number
 ) {
   return (
     entry.isIntersecting ||
     (threshold === 0
       ? entry.intersectionRatio > 0
-      : entry.intersectionRatio > threshold)
+      : entry.intersectionRatio >= threshold)
   );
 }
