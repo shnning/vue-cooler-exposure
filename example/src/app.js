@@ -3,12 +3,16 @@ import exposurePlugin from '../../dist/index';
 import App from './App.vue';
 
 Vue.use(exposurePlugin, {
-  threshold: 1
+  threshold: 1,
 });
 
-Vue.prototype.$exposure.addAfterRecordCallback((items) => {
-  console.log(items);
-});
+Vue.prototype.$exposure
+  .addAfterRecordCallback(items => {
+    console.log(items);
+  })
+  .addAfterRecordCallback(items => {
+    console.log('second: ', items);
+  });
 
 new Vue({
   el: '#app',

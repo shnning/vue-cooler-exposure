@@ -4,13 +4,13 @@ const path = require('path');
 
 module.exports = {
   entry: path.resolve(__dirname, '../src/app.js'),
+  mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../index.html')
     }),
     new VueLoaderPlugin()
   ],
-  devtool: 'inline-source-map',
   devServer: {
     contentBase: '../dist',
     open: true
