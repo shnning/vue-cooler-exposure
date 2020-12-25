@@ -34,7 +34,7 @@ export default class Exposure {
   private _initOptions(options?: ExposureOptions): IntersectionObserverConfig {
     let config: IntersectionObserverConfig;
     if (options) {
-      let { border, threshold = 0 } = options;
+      let { border, threshold = 1 } = options;
       border = { ...{ top: 0, bottom: 0, left: 0, right: 0 }, ...border };
       if (threshold > 1) {
         threshold = 1;
@@ -48,7 +48,7 @@ export default class Exposure {
     } else {
       config = {
         rootMargin: '0px 0px 0px 0px',
-        threshold: 0,
+        threshold: 1,
       };
     }
 
