@@ -6,12 +6,12 @@ export default {
     };
   },
   mounted() {
-    setTimeout(() => {
-      this.dataList = [...Array(200).keys()].slice(100, 200);
-      this.$nextTick(() => {
-        this.$exposure.exposureCheck();
-      });
-    }, 5000);
+    // setTimeout(() => {
+    //   this.dataList = [...Array(200).keys()].slice(100, 200);
+    //   this.$nextTick(() => {
+    //     this.$exposure.exposureCheck();
+    //   });
+    // }, 5000);
   },
   methods: {
     handleClickBtn() {

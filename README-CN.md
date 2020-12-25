@@ -59,7 +59,7 @@ template:
 |key|description|default|options|
 |---|-----------|-------|-------|
 |border|设置可视区域的边界|{top: 0, bottom: 0, left: 0, right: 0}(默认window))|{top, bottom, left, right}|
-|threshold|element进入可视区域的比例|0(默认是0，意味着element刚进入或者完全离开可视区域就触发回调事件)|0~1|
+|threshold|element进入可视区域的比例|1(默认是1，意味着element完全进入可视区域触发回调事件)|0~1|
 |delay|防抖延迟时间(单位: ms)|800|number|
 
 ## APIs

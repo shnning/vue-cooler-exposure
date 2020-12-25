@@ -59,7 +59,7 @@ v-exposure would set the data, which you could get it in the callback args, in t
 |key|description|default|options|
 |---|-----------|-------|-------|
 |border|the viewport you want to listen|{top: 0, bottom: 0, left: 0, right: 0}(window)|{top, bottom, left, right}|
-|threshold|the proportion of element insert into viewport|0(0 means that when a element go into the viewport, image begins load)|0~1|
+|threshold|the proportion of element insert into viewport|1(1 means that when a whole element go into the viewport, callback would be excuted)|0~1|
 |delay|a delay time for debounce(unit: ms)|800|number|
 
 ## APIs
